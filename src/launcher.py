@@ -1,14 +1,17 @@
 import asyncio
 
 import discord
-from discord.ext import commands
+
+import settings
+from core.client import Maru
 
 
 async def main():
-    bot = commands.AutoShardedBot(command_prefix='ㅎ')
+    bot = Maru()
+
     async with bot:
         discord.utils.setup_logging()
-        # await bot.start(TOKEN)
+        await bot.start(settings.TOKEN)
 
 
 asyncio.run(main())
