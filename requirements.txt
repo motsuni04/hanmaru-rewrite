@@ -1,2 +1,4 @@
 discord.py==2.5.2
 PyYAML==6.0.2
+sqlalchemy[asyncio]==2.0.42
+asyncpg==0.30.0

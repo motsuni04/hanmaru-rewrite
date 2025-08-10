@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:17-alpine
+    restart: always
+    container_name: maru_db
+    environment:
+      POSTGRES_USER: maru
+      POSTGRES_PASSWORD: maru
+      POSTGRES_DB: maru
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  bot:
+    build: .
+    container_name: maru_bot
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
