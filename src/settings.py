@@ -6,4 +6,6 @@ with open('secrets.yml', 'r', encoding='utf-8') as f:
     _secrets = yaml.safe_load(f)
 
 PREFIXES = _config['prefixes']
+DATABASE_URL = _config['database_url']
+
 TOKEN = _secrets['token']
