@@ -31,11 +31,26 @@ class Maru(commands.AutoShardedBot):
             async with Session() as session:
                 await register_user(
                     session,
-                    ctx.author.id,
-                    ctx.author.global_name
+                    ctx.author
                 )
 
             await self.invoke(ctx)
 
     async def on_command_error(self, ctx, error):
+        if isinstance(error, commands.CommandNotFound):
+            return
+        if isinstance(error, commands.UserNotFound):
+            await ctx.reply(
+                embed=discord.Embed(
+                    description="존재하지 않거나 한마루를 사용하지 않는 사람이에요.",
+                    colour=discord.Colour.yellow()
+                )
+            )
+        elif isinstance(error, commands.CommandOnCooldown):
+            await ctx.reply(
+                embed=discord.Embed(
+                    description=f"이 명령어는 {int(error.retry_after + 1)}초 후에 다시 사용할 수 있어요.",
+                    colour=discord.Colour.yellow()
+                )
+            )
         raise error
