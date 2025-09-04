@@ -53,4 +53,20 @@ class Maru(commands.AutoShardedBot):
                     colour=discord.Colour.yellow()
                 )
             )
-        raise error
+        elif isinstance(error, commands.BadArgument):
+            await ctx.reply(
+                embed=discord.Embed(
+                    description=str(error),
+                    colour=discord.Colour.brand_red()
+                )
+            )
+        elif isinstance(error, commands.MissingRequiredArgument):
+            await ctx.reply(
+                embed=discord.Embed(
+                    description="명령어를 잘못 입력했어요. 사용법을 참고해주세요.\n\n"
+                                + ctx.command.usage.format(prefix=ctx.clean_prefix),
+                    colour=discord.Colour.brand_red()
+                )
+            )
+        else:
+            raise error

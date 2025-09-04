@@ -6,6 +6,7 @@ from src.database import Session
 
 
 @commands.command(name="가입", aliases=["ㄱㅇ"])
+@commands.is_owner()
 async def register_command(ctx, *, target: commands.MemberConverter = None):
     target = target or ctx.author
     async with Session() as session:
@@ -15,8 +16,7 @@ async def register_command(ctx, *, target: commands.MemberConverter = None):
             return
         await register_user(
             session,
-            discord_id=target.id,
-            username=target.global_name
+            target
         )
     await ctx.reply("가입이 완료되었습니다.")
 

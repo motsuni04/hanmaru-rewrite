@@ -1,4 +1,6 @@
-from sqlalchemy import Column, Integer, String, BigInteger
+from datetime import datetime, timezone
+
+from sqlalchemy import Column, Integer, String, BigInteger, DateTime, func
 
 from src.database import Base
 
@@ -16,6 +18,9 @@ class User(Base):
 
     token = Column(Integer, default=0)
     star = Column(Integer, default=0)
+
+    created_at = Column(DateTime(timezone=True), default=datetime.now(timezone.utc))
+    last_command_at = Column(DateTime(timezone=True), default=datetime.now(timezone.utc))
 
     def __repr__(self):
         return f"<User[{self.id}](username={self.username})>"

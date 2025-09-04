@@ -8,7 +8,10 @@ def unitize(n: int) -> str:
 
     units = ['', '만', '억', '조', '경', '해', '자', '양', '구', '간', '정']
     result = []
+    i = 0
     while n > 0:
-        result.append(f"{n % 10000}{units[len(result)]}")
+        if n % 10000 > 0:
+            result.append(f"{n % 10000}{units[i]}")
         n //= 10000
+        i += 1
     return ' '.join(reversed(result))
