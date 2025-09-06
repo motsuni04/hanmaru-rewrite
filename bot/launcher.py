@@ -2,8 +2,8 @@ import asyncio
 
 import discord
 
-from . import settings
-from src.core.client import Maru
+import settings
+from core.client import Maru
 
 
 async def main():

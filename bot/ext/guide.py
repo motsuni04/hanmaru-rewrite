@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
 
-from src.core.client import Maru
-from src.emojis import MARU, TOKEN
+from core.client import Maru
+from emojis import MARU
 
 
 class GuideView(discord.ui.View):

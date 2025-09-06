@@ -1,10 +1,10 @@
 import discord
 from discord.ext import commands
 
-from src.converter import MaruUserConverter
-from src.core.client import Maru
-from src.emojis import TOKEN
-from src.utils import get_max_exp, unitize
+from converter import MaruUserConverter
+from core.client import Maru
+from emojis import TOKEN
+from utils import get_max_exp, unitize
 
 
 @commands.command(

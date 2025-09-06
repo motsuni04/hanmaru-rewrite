@@ -3,9 +3,9 @@ import os
 import discord
 from discord.ext import commands
 
-from src import settings
-from src.crud.user import register_user
-from src.database import Session, init_db
+import settings
+from crud.user import register_user
+from database import Session, init_db
 
 
 class Maru(commands.AutoShardedBot):
@@ -20,9 +20,9 @@ class Maru(commands.AutoShardedBot):
         )
 
     async def setup_hook(self):
-        for file in os.listdir('src/ext'):
+        for file in os.listdir('ext'):
             if file.endswith('.py'):
-                await self.load_extension(f'src.ext.{file[:-3]}')
+                await self.load_extension(f'ext.{file[:-3]}')
         await init_db()
 
     async def on_message(self, message):

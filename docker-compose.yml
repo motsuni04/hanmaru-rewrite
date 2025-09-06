@@ -13,10 +13,33 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   bot:
-    build: .
+    build:
+        context: ./bot
+    restart: always
     container_name: maru_bot
     depends_on:
       - db
+
+  web:
+    build:
+      context: ./web
+    restart: always
+    container_name: maru_web
+    expose:
+      - "5000"
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:latest
+    restart: always
+    container_name: maru_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./web/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - web
 
 volumes:
   postgres_data:

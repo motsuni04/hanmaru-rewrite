@@ -1,8 +1,8 @@
 from discord.ext import commands
 
-from src.core.client import Maru
-from src.crud.user import get_user, register_user
-from src.database import Session
+from core.client import Maru
+from crud.user import get_user, register_user
+from database import Session
 
 
 @commands.command(name="가입", aliases=["ㄱㅇ"])

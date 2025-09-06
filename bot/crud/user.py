@@ -1,7 +1,7 @@
 from sqlalchemy import update, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.models.user import User
+from models.user import User
 
 
 async def register_user(session: AsyncSession, discord_user):

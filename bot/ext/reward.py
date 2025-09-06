@@ -1,11 +1,11 @@
 import random
 from discord.ext import commands
 
-from src.core.client import Maru
-from src.crud.user import add_token
-from src.database import Session
-from src.emojis import TOKEN
-from src.utils import unitize
+from core.client import Maru
+from crud.user import add_token
+from database import Session
+from emojis import TOKEN
+from utils import unitize
 
 
 @commands.command(

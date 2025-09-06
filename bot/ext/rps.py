@@ -4,13 +4,13 @@ import random
 import discord
 from discord.ext import commands
 
-from src.converter import BetConverter
-from src.core.client import Maru
-from src.crud.user import get_user, add_token
-from src.database import Session
-from src.emojis import TOKEN, RPS, ROCK, SCISSOR, PAPER
-from src.utils import unitize
-from src.views import MyView
+from converter import BetConverter
+from core.client import Maru
+from crud.user import get_user, add_token
+from database import Session
+from emojis import TOKEN, RPS, ROCK, SCISSOR, PAPER
+from utils import unitize
+from views import MyView
 
 
 MIN_BET = 100

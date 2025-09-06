@@ -1,4 +1,4 @@
-secrets.yml
+bot/secrets.yml
 .idea/
 .venv/
 __pycache__/

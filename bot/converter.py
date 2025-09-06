@@ -2,9 +2,9 @@ import re
 
 from discord.ext import commands
 
-from src.crud.user import get_user, get_a_user_by_username_ordered_by_level
-from src.database import Session
-from src.utils import unitize
+from crud.user import get_user, get_a_user_by_username_ordered_by_level
+from database import Session
+from utils import unitize
 
 
 class BetConverter(commands.Converter):
