@@ -1,2 +1,6 @@
 flask[async]==3.1.2
 gunicorn==23.0.0
+PyYAML==6.0.2
+SQLAlchemy==2.0.43
+psycopg2-binary==2.9.10
+Flask-SQLAlchemy==3.1.1

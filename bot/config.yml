@@ -1,2 +1,2 @@
-prefixes: ["ㅌ", "x"]
+prefixes: ["ㅌ", "마루야"]
 database_url: "postgresql+asyncpg://maru:pass@db:5432/database"

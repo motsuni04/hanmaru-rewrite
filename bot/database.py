@@ -6,7 +6,7 @@ import settings
 engine = create_async_engine(settings.DATABASE_URL, echo=False)
 Base = declarative_base()
 
-Session = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
+Session = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)  # noqa
 
 
 async def init_db():

@@ -1,0 +1,2 @@
+prefixes: ["ㅌ", "마루야"]
+database_url: "postgresql://maru:pass@db:5432/database"

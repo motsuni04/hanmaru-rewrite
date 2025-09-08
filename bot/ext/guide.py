@@ -19,12 +19,18 @@ class GuideView(discord.ui.View):
 
 
 @commands.command(
-    name="도움", aliases=["ㄷㅇ", "명령어", "ㅁㄹㅇ", "커맨드", "ㅋㅁㄷ", "헬프", "ㅎㅍ", "도움말", "ㄷㅇㅁ"]
+    name="도움", aliases=["ㄷㅇ", "명령어", "ㅁㄹㅇ", "커맨드", "ㅋㅁㄷ", "헬프", "ㅎㅍ", "도움말", "ㄷㅇㅁ"],
+    usage="{prefix}도움"
 )
 @commands.cooldown(1, 2, commands.BucketType.user)
 async def guide(ctx):
+    """
+사용할 수 있는 모든 명령어들을 확인해요.
+명령어를 눌러서 자세한 설명을 볼 수 있어요.
+    """
+
     def to_linked(cmd: str) -> str:
-        return f'[{cmd}]({"https://hanmaru.tech/commands/" + cmd})'
+        return f'[{cmd}]({"http://hanmaru.tech/commands/" + cmd + "?prefix=" + prefix})'
 
     prefix = ctx.clean_prefix
     embed = discord.Embed(

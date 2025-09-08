@@ -4,6 +4,7 @@ import discord
 from discord.ext import commands
 
 import settings
+from crud.command import update_command
 from crud.user import register_user
 from database import Session, init_db
 
@@ -24,6 +25,11 @@ class Maru(commands.AutoShardedBot):
             if file.endswith('.py'):
                 await self.load_extension(f'ext.{file[:-3]}')
         await init_db()
+
+        async with Session() as session:
+            for command in self.walk_commands():
+                await update_command(session, command)
+
 
     async def on_message(self, message):
         ctx = await self.get_context(message)
