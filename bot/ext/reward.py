@@ -28,4 +28,4 @@ async def reward(ctx):
 
 
 async def setup(bot: Maru):
-    bot.add_command(reward)
+    bot.add_command(reward)  # noqa

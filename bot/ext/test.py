@@ -22,5 +22,5 @@ async def register_command(ctx, *, target: commands.MemberConverter = None):
 
 
 async def setup(bot: Maru):
-    bot.add_command(register_command)
+    bot.add_command(register_command)  # noqa
 

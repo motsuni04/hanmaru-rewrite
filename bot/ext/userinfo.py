@@ -33,4 +33,4 @@ async def userinfo(ctx, *, target: MaruUserConverter()):
 
 
 async def setup(bot: Maru):
-    bot.add_command(userinfo)
+    bot.add_command(userinfo)  # noqa

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress CssUnusedSymbol -->
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -8,11 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 
-    <title>한마루 - {{ title }}</title>
+    {% if title %}
+        <title>한마루 - {{ title }}</title>
+    {% else %}
+        <title>한마루</title>
+    {% endif %}
     <style>
         :root {
             --bg-color: #1C1C1F;
-            --nav-bg-color: #0060DF;
+            --primary-color: #0060DF;
+            --secondary-color: #4F91E8;
             --nav-text-color: white;
             --text-color: white;
             --container-bg-color: #2C2C2E;
@@ -36,11 +42,13 @@
 
         .page-wrapper {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: flex-start;
             align-items: center;
-            min-height: 100vh;
-            padding: 60px 20px 20px;
+            padding: 160px 20px 20px;
             text-align: center;
+
         }
 
         .nav {
@@ -49,14 +57,24 @@
             left: 0;
             height: 50px;
             width: 100%;
-            padding: 5px;
+            padding: 5px 10px;
             z-index: 1000;
 
-            background-color: var(--nav-bg-color);
+            background-color: var(--primary-color);
             color: var(--nav-text-color);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 40px;
+        }
+        .linked-wrapper {
+            text-decoration: none;
+            color: var(--nav-text-color);
         }
         .logo {
+            width: 40px;
             height: 40px;
             vertical-align: middle;
         }
@@ -66,8 +84,13 @@
             margin-left: 5px;
             font-size: 1.5em;
             font-weight: bold;
-            color: var(--nav-text-color);
         }
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
         .container {
             max-width: 600px;
             padding: 40px;
@@ -85,25 +108,27 @@
             object-fit: cover;
             border-radius: 50%;
         }
+
     </style>
+    {% block css %}
+    {% endblock %}
 </head>
 
 <body>
     <div class="nav">
-        <a href="/">
+        <a href="/" class="linked-wrapper">
             <img src="/static/maru.png" alt="Maru Logo" class="rounded logo"> <span class="logo-text">한마루</span>
         </a>
+        <ul class="nav-list">
+                <li><a href="/commands" class="linked-wrapper" style="font-weight: bold">명령어</a></li>
+                <li><a href="/stats" class="linked-wrapper">전적</a></li>
+                <li><a href="/ranking" class="linked-wrapper">순위표</a></li>
+        </ul>
     </div>
     <div class="page-wrapper">
-        <div class="container">
-            <h1>{{ name }}</h1>
-            <p>
-                {{ help }}
-            </p>
-            <p>
-                {{ usage }}
-            </p>
-        </div>
+        {% block content %}
+        EmptyPage
+        {% endblock %}
     </div>
 </body>
 </html>

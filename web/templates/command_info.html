@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<style>
+    .aliases {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ name }}</h1>
+        <div class="aliases">
+            {% for alias in aliases %}
+                <h3>{{ alias }}</h3>
+            {% endfor %}
+        </div>
+        <p>
+            {{ help }}
+        </p>
+        <p>
+            {{ usage }}
+        </p>
+    </div>
+{% endblock %}

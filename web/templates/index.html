@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<style>
+    .main-title {
+        font-size: 2.5em;
+        margin-bottom: 35px;
+        line-height: 1.4;
+    }
+    .main-button {
+        height: 50px;
+        width: 200px;
+        border-radius: 25px;
+        margin: 0 0 15px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        border: none;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <h1 class="main-title">
+        디스코드 서버에서 바로 사용 가능한<br>
+        종합 미니게임 봇 <span style="color: var(--primary-color)">한마루</span>
+    </h1>
+
+    <a href="https://discord.com/oauth2/authorize?client_id=686460052982464522&scope=bot%20applications.commands&permissions=388161&response_type=code&redirect_uri=https://discord.com/invite/tTq9aD3"
+       class="main-button linked-wrapper">
+        내 서버에 초대하기
+    </a>
+
+    <a href="https://discord.gg/tTq9aD3"
+       class="main-button linked-wrapper">
+        공식 서버 입장하기
+    </a>
+{% endblock %}
