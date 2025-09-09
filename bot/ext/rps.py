@@ -162,6 +162,9 @@ class RPSGameView(MyView):
 )
 @commands.cooldown(1, 3, commands.BucketType.user)
 async def rps(ctx, *, init_bet: BetConverter(MIN_BET, MAX_BET)):
+    """
+토큰을 걸고 한마루와 가위바위보를 해요.
+    """
     rate = 0
     async with Session() as session:
         while True:

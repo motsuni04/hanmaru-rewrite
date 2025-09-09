@@ -15,6 +15,9 @@ from utils import get_max_exp, unitize
 )
 @commands.cooldown(1, 1, commands.BucketType.user)
 async def userinfo(ctx, *, target: MaruUserConverter()):
+    """
+나 또는 다른 사람의 정보를 확인해요.
+    """
     min_exp = get_max_exp(target.level - 1)
     max_exp = get_max_exp(target.level)
     progress = target.exp - min_exp

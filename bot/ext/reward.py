@@ -9,10 +9,13 @@ from utils import unitize
 
 
 @commands.command(
-    name="토큰", aliases=["ㅌㅋ", "돈줘", "ㄷㅈ", "돈"]
+    name="토큰", aliases=["ㅌㅋ", "돈줘", "ㄷㅈ", "돈"], usage="{prefix}토큰"
 )
 @commands.cooldown(1, 60, commands.BucketType.user)
 async def reward(ctx):
+    """
+토큰을 조금 받아요. 1분마다 사용 가능해요.
+    """
     count = 4000 + 500 * random.randint(3, 16)
 
     await ctx.reply(
